@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+    protonvpn:
+        container_name: protonvpn
+        environment:
+            # Credentials
+            PROTONVPN_USERNAME: ${PROTONVPN_USERNAME}
+            PROTONVPN_PASSWORD: ${PROTONVPN_PASSWORD}
+            PROTONVPN_SERVER: ${PROTONVPN_SERVER:-RU}
+            PROTONVPN_TIER: ${PROTONVPN_TIER:-0}
+        image: ghcr.io/tprasadtp/protonvpn:latest
+        restart: unless-stopped
+        networks:
+            - internet
+            - proxy
+        cap_add:
+            - NET_ADMIN
+        devices:
+            - /dev/net/tun:/dev/net/tun
+    ddos:
+        build: ddos
+        image: ddos:latest
+        depends_on:
+            - protonvpn
+        environment:
+            TARGET_FILE: ${TARGET_FILE}
+        restart: unless-stopped
+        network_mode: service:protonvpn
+networks:
+    internet:
+    proxy:
+        internal: true
