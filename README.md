@@ -1,6 +1,7 @@
 # hifriends
 
 Instructions for Google cloud.
+
 0. Register on google cloud(you wil have free 300$ there), protonvpn. 
 
 1. Create publiccaly accesible file with your targer (you can use same google account) with content "HOST:PORT"
