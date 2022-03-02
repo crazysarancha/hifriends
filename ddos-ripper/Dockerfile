@@ -1,10 +1,7 @@
 FROM debian:bullseye-backports
 
 RUN apt update && apt upgrade
-RUN apt-get install -y dialog python3-pip python3-setuptools
-RUN apt-get install -y git
-RUN apt-get install -y nano
-RUN apt-get install -y wget
+RUN apt-get install -y dialog python3-pip python3-setuptools git nano wget
 
 WORKDIR /var/www/app
 

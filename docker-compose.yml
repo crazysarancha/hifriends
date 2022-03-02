@@ -17,9 +17,10 @@ services:
             - NET_ADMIN
         devices:
             - /dev/net/tun:/dev/net/tun
-    ddos:
-        build: ddos
-        image: ddos:latest
+    ddos-ripper:
+#        build: ddos-ripper
+#        image: ddos-ripper:latest
+        image: frank61644/ddos-ripper:latest
         depends_on:
             - protonvpn
         environment:
