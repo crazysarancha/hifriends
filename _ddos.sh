@@ -24,5 +24,5 @@ do
   HOST="${tokens[0]}"
   PORT="${tokens[1]}"
 
-  timeout 20m python3 DRipper.py -s ${HOST} -p ${PORT} -t 135
+  timeout 5m python3 DRipper.py -s ${HOST} -p ${PORT} -t 135
 done
